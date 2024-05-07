@@ -1,21 +1,38 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  # - name: my_first_dbt_model
+  #   description: "A starter dbt model"
+  #   columns:
+  #     - name: id
+  #       description: "The primary key for this table"
+  #       tests:
+  #         - unique
+  #         - not_null
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  # - name: my_second_dbt_model
+  #   description: "A starter dbt model"
+  #   columns:
+  #     - name: id
+  #       description: "The primary key for this table"
+  #       tests:
+  #         - unique
+  #         - not_null
+
+  - name: museum
+    columns:
+      - name: Museum_ID
+        description: "Primary key for the museum table"
+        tests:
+          - unique
+          - not_null
+
+  - name: museum_hours
+    columns:
+      - name: Museum_ID
+        description: "Foreign key to the museum table"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('museum')
+              field: Museum_ID
