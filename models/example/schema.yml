@@ -29,10 +29,19 @@ models:
 
   - name: museum_hours
     columns:
-      - name: Museum_ID
-        description: "Foreign key to the museum table"
+    - name: Museum_ID
+      description: "Foreign key referencing Museum_ID in the museum table"
+      tests:
+        - relationships:
+            to: ref('museum')
+            field: Museum_ID
+
+
+            
+  - name: stadium_clean
+    columns:
+      - name: rank
+        description: "primary key to the stadium_cleaned table"
         tests:
           - not_null
-          - relationships:
-              to: ref('museum')
-              field: Museum_ID
+          
