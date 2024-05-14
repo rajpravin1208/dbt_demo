@@ -18,6 +18,5 @@ FROM {{ ref('Sales') }} )
     Category,
     Segment,
     Unit_Cost,
-    Unit_Price,
-    CatsegID
+    Unit_Price
   FROM new_data
