@@ -4,5 +4,5 @@ SELECT Distinct CAST(ZipCode AS STRING) AS ZipCode,
         Region, 
         District, 
         Country 
-FROM `prj-data-d-poc-5-7joi.dbt_demo_bq.sales` 
+FROM {{ ref('FactSales') }}
 Order by 1
