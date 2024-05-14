@@ -1,10 +1,22 @@
+With new_data as
 
-  SELECT distinct 
+(SELECT 
+  Distinct ProductID,
+  Product,
+  Category,
+  Segment,
+  Unit_Cost,
+  Unit_Price
+FROM {{ ref('Sales') }} )
+
+
+
+  SELECT 
+    ROW_NUMBER() OVER(ORDER BY ProductID) AS ProductSK,
     ProductID,
     Product,
     Category,
     Segment,
     Unit_Cost,
     Unit_Price
-  FROM {{ ref('Sales') }}
-  order by ProductID
+  FROM new_data
