@@ -4,5 +4,5 @@ SELECT Distinct CAST(ZipCode AS STRING) AS ZipCode,
         Region, 
         District, 
         Country 
-FROM {{ ref('FactSales') }}
+FROM {{ ref('Sales') }}
 Order by 1

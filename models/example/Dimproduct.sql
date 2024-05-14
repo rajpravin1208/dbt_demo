@@ -6,5 +6,5 @@
     Segment,
     Unit_Cost,
     Unit_Price
-  FROM {{ ref('FactSales') }}
+  FROM {{ ref('Sales') }}
   order by ProductID
